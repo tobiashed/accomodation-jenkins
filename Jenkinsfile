@@ -22,6 +22,14 @@ pipeline{
             }
           
         }
+        stage('Deploy artifacts'){
+            steps{
+                sh 'asadmin deploy --force=true /home/robot/.jenkins/workspace/test-jenkins-pipeline/hotel-restfull/target/hotel-rest.war'
+                sh 'asadmin deploy --force=true /home/robot/.jenkins/workspace/test-jenkins-pipeline/hoteljsf/target/hotel.war'
+            
+            }
+          
+        }
     }
 
 }
