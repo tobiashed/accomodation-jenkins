@@ -30,6 +30,13 @@ pipeline{
             }
           
         }
+        stage('Clean database'){
+            steps{
+                sh 'psql -h localhost -U postgres hotel -f /home/robot/.jenkins/workspace/test-jenkins-pipeline/hoteljsf/database-backup.sql'
+                
+            }
+          
+        }
     }
 
 }
